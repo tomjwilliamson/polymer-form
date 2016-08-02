@@ -1,0 +1,24 @@
+.form-overlay {
+	font-family: 'Roboto', sans-serif;
+	font-weight: 500;
+}
+
+h1 {
+	margin: 0;
+	font-size: 48px;
+}
+
+h2 {
+	font-size: 18px;
+	margin: 0 0 10px;
+	color: $brand-primary;
+}
+
+h3 {
+	font-size: 14px;
+	margin: 0;
+
+	span { font-size: 18px; }
+}
+
+label { font-size: 10px; }

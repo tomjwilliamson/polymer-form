@@ -1,0 +1,78 @@
+<link rel="import" href="../google-apis/google-apis.html">
+<link rel="import" href="../google-apis/google-js-api.html">
+<link rel="import" href="../google-map/google-map.html">
+<link rel="import" href="../iron-ajax/iron-ajax.html">
+
+<dom-module id="portr-addresslookup">
+  <template>
+
+    <iron-ajax
+      auto
+      url=""
+      handle-as="json"
+      on-response="handleResponse"></iron-ajax>
+
+    <google-maps-api on-api-load="loaded" api-key="AIzaSyBtsg6itwhYRFKEGATINqDWP0W26QiTXlg"></google-maps-api>
+    <paper-input
+      is="iron-input"
+      id="BagLocationAddress"
+      label="Your London address"
+      placeholder=""
+      type="text"
+      class="form-control"
+      always-float-label required></paper-input>
+
+
+  </template>
+
+
+
+  <script>
+
+    var getLocationData;
+
+    Polymer({
+
+      is: 'portr-addresslookup',
+      loaded: function(){
+        console.log('YES');
+
+        var input = document.getElementById('BagLocationAddress');
+
+        console.log(input);
+
+        var autocomplete = new google.maps.places.Autocomplete(input);
+
+        google.maps.event.addListener(autocomplete, 'place_changed', function() {
+          var place = autocomplete.getPlace();
+          console.log(place);
+
+          if(typeof place.place_id === 'undefined') {
+            console.log('error');
+          }
+
+          getLocationData = {
+            'userId': '21261a0d-01e8-415a-a3ce-afef47100e59',
+            'googlePlaceId': place.place_id
+          };
+
+          console.log(getLocationData);
+
+        });
+
+      },
+
+      setajax: function () {
+        this.$.ajax.url = 'http://devapi.portr.com/api/Location/GetGoogleLocation';
+        this.$.ajax.params = getLocationData;
+        this.$.ajax.generateRequest();
+      },
+      hresponse: function(request) {
+        console.log(request.detail.response);
+        console.log(this.$.ajax.lastResponse);
+      }
+
+    });
+
+  </script>
+</dom-module>

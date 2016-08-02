@@ -1,0 +1,31 @@
+.btn {
+	padding: 15px;
+	border: none;
+	font-size: 18px;
+	text-transform: uppercase;
+
+	&:disabled{
+		opacity: 0.5;
+		cursor: not-allowed;
+	}
+}
+
+.btn-primary {
+	background-color: $brand-primary;
+	color: $white;
+}
+
+.btn-inverse {
+	background-color: $white;
+	color: $brand-primary;
+}
+
+.btn-block {
+	display: block;
+	width: 100%;
+}
+
+.btn-link {
+	color: $brand-primary;
+	text-decoration: none;
+}

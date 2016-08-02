@@ -1,0 +1,174 @@
+<link rel="import" href="../polymer/polymer.html">
+<link rel="import" href="portr-addresslookup.html">
+<link rel="import" href="../iron-icons/maps-icons.html">
+<link rel="import" href="../iron-input/iron-input.html">
+<link rel="import" href="../paper-input/paper-input.html">
+<link rel="import" href="../paper-elements/paper-elements.html">
+<link rel="import" href="../paper-item/paper-item.html">
+<link rel="import" href="../paper-listbox/paper-listbox.html">
+<link rel="import" href="../iron-validatable-behavior/iron-validatable-behavior.html">
+
+
+<!--
+`portr-leadin`
+Lead in element for Portr booking form
+
+@demo demo/index.html
+-->
+
+<dom-module id="portr-leadin">
+  <template>
+    <!-- Start Style --><style>.form-overlay{font-family:'Roboto', sans-serif;font-weight:500}h1{margin:0;font-size:48px}h2{font-size:18px;margin:0 0 10px;color:#2B98D1}h3{font-size:14px;margin:0}h3 span{font-size:18px}label{font-size:10px}.btn{padding:15px;border:none;font-size:18px;text-transform:uppercase}.btn:disabled{opacity:0.5;cursor:not-allowed}.btn-primary{background-color:#2B98D1;color:#fff}.btn-inverse{background-color:#fff;color:#2B98D1}.btn-block{display:block;width:100%}.btn-link{color:#2B98D1;text-decoration:none}.form-overlay{position:absolute;width:100%;top:0;left:0;background:#fff;color:#666;font-size:12px}.form-overlay .form-container{padding:24px}.form-overlay p{margin:0 0 18px 0}.form-overlay *{box-sizing:border-box}.price-container{margin-left:-24px;margin-right:-24px;height:0;overflow-y:hidden;transition:all 0.3s ease-in-out}.price-container.open{height:200px}.price-container .price-content{background-color:#2B98D1;padding:8px 24px;border-top:4px solid #666;border-bottom:4px solid #666;color:#D4EAF5;font-size:12px}.price-container .quote-box{margin-top:10px;margin-bottom:10px;padding-top:12px;padding-bottom:12px;border-top:2px solid #D4EAF5;border-bottom:2px solid #D4EAF5}.price-container .quote-box h1{line-height:1.1;letter-spacing:0.065em}.price-container .quote-box .pull-left{width:145px}.price-container .quote-box .pull-right{width:calc(100% - 145px)}.price-container h3+h3{padding-top:3px}.price-container h3 span{padding-left:5px;padding-right:5px}.price-container h3 span+sup{padding-left:10px}.price-container h3 sup+span{padding-right:0}::-webkit-input-placeholder{color:#CACCCA}::-moz-placeholder{color:#CACCCA}:-moz-placeholder{color:#CACCCA}:-ms-input-placeholder{color:#CACCCA}input[type="number"]::-webkit-outer-spin-button,input[type="number"]::-webkit-inner-spin-button{-webkit-appearance:none;margin:0}input[type="number"]{-moz-appearance:textfield}input,select{border:0;border-color:#CACCCA;border-radius:0}.help-block{display:block;margin-top:5px;margin-bottom:10px;color:#CACCCA;font-size:12px}.form-group{position:relative;padding-bottom:8px;margin:20px 0}.form-group label{color:#CACCCA}.form-group.is-empty label{color:#666}.form-group .form-control{display:block}.form-group .help-block{display:none;position:absolute;right:0;padding-top:4px;text-align:right}.form-group.is-focused .form-control{outline:none;background-image:linear-gradient(#2B98D1, #2B98D1),linear-gradient(#CACCCA, #CACCCA);background-size:100% 4px, 100% 1px;box-shadow:none;transition-duration:0.3s}.form-group.is-focused .form-control .material-input:after{background-color:#2B98D1}.form-lead-in{padding-top:25px}.date-inputs .form-group{display:inline-block;margin-top:0;margin-bottom:0;padding-bottom:0;width:60px}.date-inputs .form-group+.form-group{margin-left:-3px}.date-inputs .form-group:after{content:'/';position:absolute;top:-3px;right:-12px;font-size:28px;color:#CACCCA;z-index:10}.date-inputs .form-group .form-control{padding-left:11px}.date-inputs .form-group:first-of-type .form-control{padding-left:0}.date-inputs .form-group:last-of-type{width:calc(100% - 120px)}.date-inputs .form-group:last-of-type .form-control{padding-left:25px}.date-inputs .form-group:last-of-type:after{display:none}.bag-inputs .form-group{margin:0}.bag-inputs .list-group-item{display:inline-block}.bag-inputs .list-group-item:first-child{margin-right:20px}.bag-inputs .list-group-item .form-control{width:60px;margin-right:20px}.list-group-item .row-action-primary{display:inline-block;padding-right:5px}.list-group-item .row-action-primary i{display:block;width:30px;height:30px;line-height:30px;text-align:center;font-size:30px;color:#D8D8D8}.list-group-item .row-content{display:inline-block;width:calc(100% - 39px);min-height:30px}.clearfix:after{content:"";display:table;clear:both}.pull-left{float:left}.pull-right{float:right}.text-center{text-align:center}.text-uppercase{text-transform:uppercase}.hidden{display:none}.margin-top-15{margin-top:15px !important}.margin-top-30{margin-top:30px !important}.text-white{color:#fff}.text-danger{color:#E74C3C}
+      </style><!-- End Style -->
+
+  <div class="form-overlay">
+    <div class="form-container">
+
+      <h2 class="text-center">Enter flight info</h2>
+
+      <div class="price-container">
+        <div class="price-content">
+          <h3 class="text-center">We can airportr your <span class="bags-total text-white">3</span> bags</h3>
+          <h3 class="text-center">
+            <sup>From</sup>
+            <span class="address-from-holder text-white"></span>
+            <sup>To</sup>
+            <span class="address-to-holder text-white"></span>
+          </h3>
+          <div class="quote-box clearfix">
+            <h1 class="pull-left text-white">£<span class="price-holder"></span></h1>
+            <button class="btn btn-inverse pull-right" type="button">Book now</button>
+          </div>
+          <div class="text-center">You will pick up your bags at the carousel</div>
+        </div>
+      </div>
+
+      <form name="formFlight" is="iron-form" class="form-lead-in list-group" role="listbox" novalidate>
+
+       <!--  <paper-input label="Flight number" class="form-control flight-number" name="FlightNumber" id="FlightNumber" type="text" always-float-label required>
+          <div prefix>
+            <iron-icon icon="maps:local-airport"></iron-icon>
+          </div>
+        </paper-input> -->
+
+        <div class="form-group list-group-item">
+          <div class="row-action-primary">
+            <iron-icon icon="maps:local-airport"></iron-icon>
+          </div>
+          <div class="row-content">
+            <paper-input is="iron-input" label="Flight number" class="form-control flight-number" name="FlightNumber" id="FlightNumber" type="text" on-blur="validateBA" always-float-label required></paper-input>
+            <p class="help-block text-danger ba-error">Flight number should start with BA</p>
+            <p class="help-block text-danger on-submit-error">Flight should depart from a London airport</p>
+
+           <!--  <p class="help-block text-danger ba-error">Flight number should start with BA</p>
+            <p class="help-block text-danger on-submit-error">Flight should depart from a London airport</p> -->
+          </div>
+        </div>
+
+        <div class="form-group list-group-item">
+          <div class="row-action-primary">
+            <iron-icon icon="icons:event"></iron-icon>
+          </div>
+          <div class="date-inputs row-content">
+            <paper-input-container
+              id="FlightDates"
+              always-float-label>
+              <label for="FlightDates">Flight date</label>
+              <div class="form-group">
+                <input class="form-control text-center depart-day" name="DepartureDate" id="DepartureDate" placeholder="00" type="number" min="1" max="31" required></input>
+              </div>
+              <div class="form-group">
+                <label class="hidden" for="DepartureDateMonth">Flight month</label>
+                <input class="form-control text-center depart-month" name="DepartureDateMonth" id="DepartureDateMonth" type="number" min="1" max="12" placeholder="00" required></input>
+              </div>
+              <div class="form-group">
+                <label class="hidden" for="DepartureDateYear">Flight year</label>
+                <input class="form-control depart-year" name="DepartureDateYear" id="DepartureDateYear" type="number" min="2016" max="2021" placeholder="0000" required></input>
+              </div>
+              <p class="help-block text-danger">Flight needs to be at least 6 hours from now</p>
+            </paper-input-container>
+          </div>
+        </div>
+
+        <div class="form-group list-group-item">
+          <div class="row-action-primary">
+            <iron-icon icon="maps:place"></iron-icon>
+          </div>
+          <div class="row-content">
+            <portr-addresslookup></portr-addresslookup>
+            <p class="help-block text-danger">Please enter a London address</p>
+          </div>
+        </div>
+
+        <div class="form-group bag-inputs">
+            <div class="list-group-item">
+              <div class="row-action-primary">
+                <iron-icon icon="icons:work"></iron-icon>
+              </div>
+              <div class="form-group row-content">
+                <paper-input label="Hold Bags" class="form-control" name="BagCheckIn" id="BagCheckIn" type="number" min="0" placeholder="0" required></paper-input>
+              </div>
+            </div>
+            <div class="list-group-item">
+              <div class="row-action-primary">
+                <iron-icon icon="icons:work"></iron-icon>
+              </div>
+              <div class="form-group row-content">
+                <paper-input label="Cabin Bags" class="form-control" name="CarryOnBags" id="CarryOnBags" type="number" min="0" placeholder="0"></paper-input>
+              </div>
+            </div>
+          </div>
+
+          <button class="btn btn-block btn-primary submit-btn margin-top-30" type="submit" onclick="submitForm">Continue</button>
+
+          <paper-button raised onclick="submitForm()">Submit</paper-button>
+
+      </form>
+    </div>
+  </div>
+
+  </template>
+
+  <script>
+
+    Polymer({
+
+      is: 'portr-leadin',
+
+      properties: {
+        prop1: {
+          type: String,
+          value: 'portr-leadin',
+        },
+      },
+      validateBA: function(e) {
+        if(e.target.value.search(/BA/i) === -1 && e.target.value.length !== 0){
+          document.querySelector('.ba-error').style.display = 'block';
+        }
+        else{
+          document.querySelector('.ba-error').style.display = 'none';
+        }
+      },
+      addressLookup: function(e){
+
+        console.log(e);
+
+        var autocomplete = new google.maps.places.Autocomplete((document.getElementById('BagLocationAddress')), {types:['geocode']});
+        google.maps.event.addListener(autocomplete, 'place_changed', callBack);
+
+        function callback(){
+          var place = autocomplete.getPlace();
+          console.log(place);
+        }
+
+      },
+      submitForm: function(){
+        formFlight.addEventListener('iron-form-presubmit', function(event) {
+          event.preventDefault();
+          console.log('submit');
+        });
+      }
+
+    });
+  </script>
+</dom-module>

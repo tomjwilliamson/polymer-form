@@ -1,0 +1,24 @@
+//material design
+.list-group-item {
+  
+  .row-action-primary {
+    display: inline-block;
+    padding-right: 5px;
+
+    i {
+      display: block;
+      width: 30px;
+      height: 30px;
+      line-height: 30px;
+      text-align: center;
+      font-size: 30px;
+      color: $gray-lighter;
+    }
+  }
+  .row-content {
+    display: inline-block;
+    width: unquote("calc(100% - 39px)");
+    min-height: 30px;
+  }
+}
+//material design --end
